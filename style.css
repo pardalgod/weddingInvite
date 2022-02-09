@@ -50,6 +50,18 @@ html, body {
     opacity: 0%;
 }
 
+.seal-click {
+    position: absolute;
+    width: auto;
+    height: 15%;
+    opacity: 0%;
+    z-index: 2;
+
+    border-radius: 50%;
+
+    background-color: black;
+}
+
 .force-centered {
     top: 50%;
     left: 50%;
@@ -82,6 +94,13 @@ html, body {
     animation-fill-mode: forwards;
 }
 
+.fade-in-and-out {
+    animation-name: fade-in-and-out;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-iteration-count: 5;
+}
+
 @keyframes remove-seal {
     from { opacity: 100%; }
     to { opacity: 0%; }
@@ -103,6 +122,24 @@ html, body {
 }
 
 @keyframes fade-out {
+    100% {
+        opacity: 0%;
+    }
+}
+
+@keyframes fade-in-and-out {
+    0% {
+        opacity: 0%;
+    }
+    25% {
+        opacity: 35%;
+    }
+    50% {
+        opacity: 0%;
+    }
+    75% {
+        opacity: 35%;
+    }
     100% {
         opacity: 0%;
     }

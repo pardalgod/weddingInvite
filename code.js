@@ -1,4 +1,8 @@
 function beginAnimation() {
+    // Remove seal click hint
+    let sealClick = document.getElementsByClassName("seal-click")[0];
+    sealClick.remove();
+
     let seal = document.getElementsByClassName("seal")[0];
     seal.classList.add("remove-seal");
 
@@ -71,5 +75,12 @@ function svgLoaded() {
 
     let loading = document.getElementsByClassName("loading")[0];
     loading.classList.add("fade-out");
-    setTimeout(() => {loading.remove()}, 1000);
+    setTimeout(() => {
+        loading.remove();
+        let sealClick = document.getElementsByClassName("seal-click")[0];
+        console.log(sealClick);
+        console.log(getComputedStyle(sealClick).height);
+        sealClick.style.width = getComputedStyle(sealClick).height;
+        sealClick.classList.add("fade-in-and-out");
+    }, 1000);
 } 
