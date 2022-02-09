@@ -41,15 +41,28 @@ function svgLoaded() {
     let invite = document.getElementsByClassName("invite")[0];
     let papers = document.getElementsByClassName("paper");
     for(let paper of papers) {
-        if (paper.classList.contains("left")) {
-            paper.style.width = getComputedStyle(invite).width;
-            paper.style.left = getComputedStyle(invite).marginLeft;
-        } else {
-            paper.style.width = (parseInt(getComputedStyle(invite).width) * 0.5) + "px";
-            let marginRight = parseInt(getComputedStyle(invite).marginRight);
-            let width = parseInt(getComputedStyle(paper).width);
-
-            paper.style.left = (marginRight + invite.clientWidth - width) + "px";
+        // Portrait mode (mobile)
+        if(window.innerHeight > window.innerWidth) {
+            if (paper.classList.contains("left")) {
+                paper.style.width = "100%";
+                paper.style.left = "0%";
+            } else {
+                paper.style.width = "50%";
+                paper.style.left = "50%";
+            }
+        } 
+        // Landscape mode (web browser)
+        else {
+            if (paper.classList.contains("left")) {
+                paper.style.width = getComputedStyle(invite).width;
+                paper.style.left = getComputedStyle(invite).marginLeft;
+            } else {
+                paper.style.width = (parseInt(getComputedStyle(invite).width) * 0.5) + "px";
+                let marginRight = parseInt(getComputedStyle(invite).marginRight);
+                let width = parseInt(getComputedStyle(paper).width);
+    
+                paper.style.left = (marginRight + invite.clientWidth - width) + "px";
+            }
         }
 
         paper.style.opacity = "85%";
