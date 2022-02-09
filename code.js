@@ -48,12 +48,14 @@ function svgLoaded() {
         // Portrait mode (mobile)
         if(window.innerHeight > window.innerWidth) {
             if (paper.classList.contains("left")) {
-                paper.style.width = "100%";
+                paper.style.width = getComputedStyle(invite).width;
                 paper.style.left = "0%";
             } else {
-                paper.style.width = "50%";
-                paper.style.left = "50%";
+                paper.style.width = (parseInt(getComputedStyle(invite).width) * 0.5) + "px";
+                paper.style.left = (parseInt(getComputedStyle(invite).width) * 0.5) + "px";
             }
+            document.getElementsByClassName("seal")[0].style.left = (parseInt(getComputedStyle(invite).width) * 0.5) + "px";
+            document.getElementsByClassName("seal-click")[0].style.left = (parseInt(getComputedStyle(invite).width) * 0.5) + "px";
         } 
         // Landscape mode (web browser)
         else {
