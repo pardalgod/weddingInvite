@@ -80,8 +80,6 @@ function svgLoaded() {
     setTimeout(() => {
         loading.remove();
         let sealClick = document.getElementsByClassName("seal-click")[0];
-        console.log(sealClick);
-        console.log(getComputedStyle(sealClick).height);
         sealClick.style.width = getComputedStyle(sealClick).height;
         sealClick.classList.add("fade-in-and-out");
     }, 1000);
