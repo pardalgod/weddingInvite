@@ -51,7 +51,10 @@ function svgLoaded() {
 
             paper.style.left = (marginRight + invite.clientWidth - width) + "px";
         }
+
+        paper.style.opacity = "85%";
     }
+    document.getElementsByClassName("seal")[0].style.opacity = "100%";
 
     let loading = document.getElementsByClassName("loading")[0];
     loading.classList.add("fade-out");
